@@ -1,0 +1,33 @@
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <nav class="navbar">
+       <div class="container">
+           <ul class="menu">
+               <a class="navbar-link" href="{% url 'index' %}"><i class="fa fa-home"></i> Домой</a>
+
+                {% if user.is_authenticated %}
+
+                    <a class="navbar-link" href="{% url 'create_photo' user.pk %}"> Создать пост</a>
+
+                    <span class="hello">Здравствуйте, <span class="user">{{ user.username }}</span></span>
+                    <a class="navbar-link" href="{% url 'logout' %} <button type="submit" class="button-exit btn-secondary btn-block">Выход</button></a>
+                    <a class="navbar-link" href="{% url 'register' %}"> Регистрация</a>
+                    <a class="navbar-link" href="{% url 'profile' user.pk %}"> Профиль</a>
+               {% else %}
+                    <a class="enter-link" href="{% url 'login' %}?next={{ request.get_full_path }}">Вход</a>
+                {% endif %}
+
+               {% block menu %}{% endblock %}
+
+           </ul>
+       </div>
+    </nav>
+
+
+
+
+
+{% endblock %}
+

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+{{block.super}}
+
+    <h1>Галерея</h1>
+    <div class="row">
+        {% for photo in photos %}
+            <div class="col-4">
+              <img src="{{ photo.image.url }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Автор: {{ photo.author.username }}</h5>
+                <p class="card-text">Описание: {{ photo.description }}</p>
+                <p class="card-text">Создан: {{ photo.created_at }}</p>
+                {
+                <p><a class="btn btn-primary" href="{% url 'photo_detail' photo.pk %}">Подробнее</a></p>
+
+                {% if request.user == photo.author or perms.photos.change_photo %}
+                <p><a class="btn btn-primary" href="{% url 'photo_update' photo.pk %}">Редактировать</a></p>
+                {% endif %}
+                {% if request.user == photo.author or perms.photos.delete_photo %}
+                <p><a class="btn btn-primary" href="{% url 'photo_delete' photo.pk %}">Удалить</a></p>
+                {% endif %}
+                <form action="{% url 'to_favorite' photo.pk %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary btn-sm mr-5">В избранное</button>
+                </form>
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content %}
+{{block.super}}
+    <div class="card" style="width: 18rem;">
+      <img src="{{ photo.image.url }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Автор: {{ photo.author.username }}</h5>
+        <p></strong> {{photo.description}}</p>
+        <a href="/" class="btn btn-primary">На главную</a>
+      </div>
+    </div>
+
+
+
+
+{% endblock %}
