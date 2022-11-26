@@ -23,7 +23,7 @@
                 {% endif %}
 
 
-                {% if photo in request.user.user_photos.all %}
+                {% if photo not in request.user.user_photos.all %}
                 <form id="form-to-favorite" data-id="{{photo.pk}}" action="{% url 'to_favorite' photo.pk %}" method="POST">
                     {% csrf_token %}
                     <button id="add-to-favorite" data-id="{{photo.pk}}" type="submit" class="btn btn-primary btn-sm mr-5">В избранное</button>
