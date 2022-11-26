@@ -32,12 +32,24 @@ class FavoriteView(ModelViewSet):
     serializer_class = FavoriteSerializer
 
 
-    def post(self, request, *args, **kwargs):
-        photo = get_object_or_404(Photo, pk=kwargs.get('pk'))
-        user = request.user
-        favorite, created = Favorite.objects.get_or_create(photo=photo, user=user)
-        if created:
-            return JsonResponse({'key': 'Добавлено в избранные'})
-        else:
-            favorite.delete()
-            return JsonResponse({'key': 'Удалено из избранных'})
+    # def post(self, request, *args, **kwargs):
+    #     photo = get_object_or_404(Photo, pk=kwargs.get('pk'))
+    #     user = request.user
+    #     favorite, created = Favorite.objects.get_or_create(photo=photo, user=user)
+    #     if created:
+    #         return JsonResponse({'key': 'Добавлено в избранные'})
+    #     else:
+    #         favorite.delete()
+    #         return JsonResponse({'key': 'Удалено из избранных'})
+
+    def add_to_favorite(self, request, *args, **kwargs):
+        photo_by_pk = self.get_object()
+        user_from_request = request.user
+        user_from_request.favourited_photos.add(photo_by_pk)
+        return JsonResponse({'key': 'Добавлено'})
+
+    def delete_from_favorite(self, request, *args, **kwargs):
+        photo_by_pk = self.get_object()
+        user_from_request = request.user
+        user_from_request.favourited_photos.remove(photo_by_pk)
+        return JsonResponse({'key': 'Удалено'})

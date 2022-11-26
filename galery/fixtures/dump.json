@@ -1,0 +1,219 @@
+[
+{
+  "model": "auth.group",
+  "fields": {
+    "name": "basic_users",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$390000$q80DrvOXQC1jtKLcNIqVAA$KD/Ts6iIcN92v6C91fwKVxg3tv8hkIb0M4M8F7JfFT4=",
+    "last_login": "2022-11-26T09:27:07.399Z",
+    "is_superuser": false,
+    "username": "aaa",
+    "first_name": "Антон",
+    "last_name": "Мосунов",
+    "email": "aaa@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-11-26T07:50:21.683Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$390000$Nfri0NFyOUcMVPxSqxeXrl$JBGDien0YyHpYuLTwH7qhZRC+WwXhclagLaeNya0qgM=",
+    "last_login": "2022-11-26T09:27:21.050Z",
+    "is_superuser": true,
+    "username": "root",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-11-26T08:33:23.937Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$390000$MJZ999tV5jb8JbbRf7Y8ua$xINPuxC0t86LBGUUqb1tZ91ziQhLgWptfKepmoAJJb4=",
+    "last_login": "2022-11-26T09:28:08.077Z",
+    "is_superuser": false,
+    "username": "Роман",
+    "first_name": "Роман",
+    "last_name": "Куприн",
+    "email": "John@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-11-26T08:58:21Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3pirmmhjdsbkz03vpj80qfv4a4w4x4xz",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSHlDS7d-w1kYAapGkhKuzL-uzbpQrf3nHNfLMK21rgNWuKM7MwUO_1uCfKD2g7wDu3Wee5tXebEd4UfdPBrR3peDvfvoMKo3zpT8SSF9Vjc5KQnTd4I4zw4SBIK2slIKqHIoEEhFZeCVoCQndHCZvb-APcNOHo:1oyrTk:Lu01JhbQnH2yG-YRos6pbJrmUxM6gdCOa3KCbTgEU9U",
+    "expire_date": "2022-12-10T09:28:08.080Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "tlofmxsivklkrudoaq1vhwqvwrnga7dl",
+  "fields": {
+    "session_data": "e30:1oyrAI:5BP9c1RLuPOEZHQY50z7eo0JqzVt0zlX-jsOJrM72M0",
+    "expire_date": "2022-12-10T09:08:02.163Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wzsm01y3mb3mb6tpednsl0kpc37wh4mn",
+  "fields": {
+    "session_data": "e30:1oyrBC:ZJF7eKNjPW7ELoFaIpRClqsF5phU3bXaJ451RBjZc0Y",
+    "expire_date": "2022-12-10T09:08:58.909Z"
+  }
+},
+{
+  "model": "photos.photo",
+  "pk": 1,
+  "fields": {
+    "image": "uploads/55760.jpg",
+    "description": "Красота!!!!!!!",
+    "author": [
+      "aaa"
+    ],
+    "is_deleted": false,
+    "created_at": "2022-11-26T07:56:15.269Z",
+    "changed_at": "2022-11-26T08:01:23.807Z"
+  }
+},
+{
+  "model": "photos.photo",
+  "pk": 2,
+  "fields": {
+    "image": "uploads/1.jpg",
+    "description": "Вау",
+    "author": [
+      "Роман"
+    ],
+    "is_deleted": false,
+    "created_at": "2022-11-26T09:11:23.264Z",
+    "changed_at": "2022-11-26T09:11:23.264Z"
+  }
+},
+{
+  "model": "photos.photo",
+  "pk": 3,
+  "fields": {
+    "image": "uploads/rabotnik2.png",
+    "description": "ываываываыфваяываы",
+    "author": [
+      "Роман"
+    ],
+    "is_deleted": false,
+    "created_at": "2022-11-26T09:28:37.544Z",
+    "changed_at": "2022-11-26T09:28:37.544Z"
+  }
+},
+{
+  "model": "photos.favorite",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "aaa"
+    ],
+    "photo": 1,
+    "is_deleted": false,
+    "created_at": "2022-11-26T08:29:20.048Z",
+    "changed_at": "2022-11-26T08:29:20.048Z"
+  }
+},
+{
+  "model": "photos.favorite",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "Роман"
+    ],
+    "photo": 1,
+    "is_deleted": false,
+    "created_at": "2022-11-26T09:36:42.159Z",
+    "changed_at": "2022-11-26T09:36:42.159Z"
+  }
+},
+{
+  "model": "photos.favorite",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "Роман"
+    ],
+    "photo": 2,
+    "is_deleted": false,
+    "created_at": "2022-11-26T09:36:48.476Z",
+    "changed_at": "2022-11-26T09:36:48.476Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2022-11-26T08:54:35.226Z",
+    "user": [
+      "root"
+    ],
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "object_id": "1",
+    "object_repr": "basic_users",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2022-11-26T09:15:21.022Z",
+    "user": [
+      "root"
+    ],
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "object_id": "1",
+    "object_repr": "basic_users",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2022-11-26T09:16:16.070Z",
+    "user": [
+      "root"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "3",
+    "object_repr": "Роман",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+}
+]
