@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -19,4 +20,9 @@ class Photo(models.Model):
     changed_at = models.DateTimeField(
         verbose_name='Дата изменения',
         auto_now=True
+    )
+    users = models.ManyToManyField(
+        through='photos.Favorite',
+        to=User,
+        related_name='user_photos'
     )

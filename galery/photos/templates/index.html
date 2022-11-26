@@ -21,14 +21,36 @@
                 {% if request.user == photo.author or perms.photos.delete_photo %}
                 <p><a class="btn btn-primary" href="{% url 'photo_delete' photo.pk %}">Удалить</a></p>
                 {% endif %}
-                <form action="{% url 'to_favorite' photo.pk %}" method="POST">
+
+
+                {% if photo in request.user.user_photos.all %}
+                <form id="form-to-favorite" data-id="{{photo.pk}}" action="{% url 'to_favorite' photo.pk %}" method="POST">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-primary btn-sm mr-5">В избранное</button>
+                    <button id="add-to-favorite" type="submit" class="btn btn-primary btn-sm mr-5">В избранное</button>
                 </form>
+                {% else %}
+
+                  <form id="form-to-delete-favorite" data-id="{{photo.pk}}" action="{% url 'to_favorite' photo.pk %}" method="POST">
+                    {% csrf_token %}
+                    <button id="remove-from-favorite" type="submit" class="btn btn-primary btn-sm mr-5">Удалить из избранного</button>
+                </form>
+                  {% endif %}
+
+
+
               </div>
             </div>
         {% endfor %}
     </div>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.js"></script>
+<script type="text/javascript" src="{% static 'js/add-remove-favorite.js' %}"></script>
 {% endblock %}
 
 
